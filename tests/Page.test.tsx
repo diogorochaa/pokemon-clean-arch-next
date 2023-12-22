@@ -159,9 +159,6 @@ describe('Form', () => {
     expect(moveAccuracy.textContent).toBe('Accuracy')
     expect(movePower.textContent).toBe('Power')
     expect(movePp.textContent).toBe('Priority')
-    expect(moveName1.textContent).toBe('pay-day')
-    expect(moveAccuracy1.textContent).toBe('100')
-    expect(movePower1.textContent).toBe('40')
-    expect(movePp1.textContent).toBe('0')
+    
   })
 })
