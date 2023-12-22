@@ -48,7 +48,7 @@ describe('Form', () => {
       fireEvent.click(buttonElement)
     })
 
-    await sleep(1000)
+    await sleep(1200)
 
     const pokemonIdElement = form.getByTestId('pokemon-id')
     const errorMessageElement = form.getByTestId('error-message')
