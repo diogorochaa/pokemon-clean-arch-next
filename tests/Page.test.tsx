@@ -1,6 +1,12 @@
 import { render, fireEvent, act } from '@testing-library/react'
 import { Form } from '@/components/Form'
 import { describe, expect, test } from 'vitest'
+import SearchPokemonGateway from '@/application/usecases/SearchPokemon/SearchPokemonGateway.interface'
+import SearchPokemonInput from '@/application/usecases/SearchPokemon/SearchPokemonInput'
+import SearchPokemonOutput from '@/application/usecases/SearchPokemon/SearchPokemonOutput'
+import GetMoveGateway from '@/application/usecases/GetMove/GetMoveGateway.interface'
+import GetMoveInput from '@/application/usecases/GetMove/GetMoveInput'
+import GetMoveOutput from '@/application/usecases/GetMove/GetMoveOutput'
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -8,6 +14,26 @@ function sleep(ms: number) {
 
 describe('Form', () => {
   test('should return pokemons id', async () => {
+    const searchPokemonGateway: SearchPokemonGateway = {
+      async byName(input: SearchPokemonInput): Promise<SearchPokemonOutput> { 
+        return {
+          id: 1,
+          name: input.name,
+          moveIds: [1],
+        }
+      }
+    }
+    const getMoveGateway: GetMoveGateway = {
+      async byId(input: GetMoveInput): Promise<GetMoveOutput>  {
+        return {
+          id: input.id,
+          name: `name-${input.id}`,
+          accuracy: 100,
+          power: 70,
+          priority: 0,
+        }
+      }
+    }
     const form = render(<Form />)
 
     act(() => {
@@ -29,6 +55,7 @@ describe('Form', () => {
 
     expect(pokemonIdElement.textContent).toBe('#25')
     expect(errorMessageElement.textContent).toBeFalsy()
+
   })
 
   test('should return error message', async () => {
@@ -132,9 +159,9 @@ describe('Form', () => {
     expect(moveAccuracy.textContent).toBe('Accuracy')
     expect(movePower.textContent).toBe('Power')
     expect(movePp.textContent).toBe('Priority')
-    expect(moveName1.textContent).toBe('mega-punch')
-    expect(moveAccuracy1.textContent).toBe('85')
-    expect(movePower1.textContent).toBe('80')
+    expect(moveName1.textContent).toBe('pay-day')
+    expect(moveAccuracy1.textContent).toBe('100')
+    expect(movePower1.textContent).toBe('40')
     expect(movePp1.textContent).toBe('0')
   })
 })

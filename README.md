@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto Pokémon - Frontend Next.js com Clean Architecture e Arquitetura Hexagonal
 
-## Getting Started
+Bem-vindo ao Projeto Pokémon! Este é um projeto de frontend desenvolvido em Next.js, que utiliza Clean Architecture e segue os princípios da Arquitetura Hexagonal para garantir uma estrutura modular, escalável e de fácil manutenção.
 
-First, run the development server:
+## Requisitos
+
+- Node.js (v14.0.0 ou superior)
+- pnpm (v6.0.0 ou superior)
+  Certifique-se de ter o Node.js e o pnpm instalados em sua máquina antes de prosseguir.
+
+## Instalação
+
+1. Clone o repositório para a sua máquina:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/pokemon-next-clean-arch.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Acesse o diretório do projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd pokemon-next-clean-arch
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Instale as dependências utilizando o pnpm:
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Executando o Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm dev
+```
 
-## Deploy on Vercel
+O projeto estará disponível em http://localhost:3000.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Estrutura do Projeto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+O projeto segue a estrutura de Clean Architecture e Arquitetura Hexagonal, dividindo-se em camadas bem definidas:
+
+- src/domain: Contém as regras de negócio do domínio, como entidades e casos de uso.
+- src/application: Responsável por implementar os casos de uso da aplicação.
+- src/infra: Camada de infraestrutura, responsável por lidar com detalhes externos como APIs e banco de dados.
+- src/interfaces: Camada de interfaces, contendo a implementação específica para o framework Next.js.
+
+### Comandos Disponíveis
+
+- pnpm dev: Inicia o servidor de desenvolvimento.
+- pnpm build: Gera a versão de produção do projeto.
+- pnpm start: Inicia o projeto em modo de produção.
+
+### Contribuindo
+
+Fique à vontade para contribuir com melhorias ou correções de bugs. Sinta-se livre para abrir uma issue ou enviar um pull request.
+
+Agradecemos por contribuir para o Projeto Pokémon!
+
+Licença
+Este projeto está licenciado sob a Licença MIT.
