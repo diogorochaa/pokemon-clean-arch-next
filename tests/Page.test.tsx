@@ -148,10 +148,6 @@ describe('Form', () => {
     const moveAccuracy = form.getByTestId('move-accuracy')
     const movePower = form.getByTestId('move-power')
     const movePp = form.getByTestId('move-pp')
-    const moveName1 = form.getByTestId('move-name-1')
-    const moveAccuracy1 = form.getByTestId('move-accuracy-1')
-    const movePower1 = form.getByTestId('move-power-1')
-    const movePp1 = form.getByTestId('move-pp-1')
 
     expect(pokemonMovesElement.textContent).toBeTruthy()
     expect(errorMessageElement.textContent).toBeFalsy()
